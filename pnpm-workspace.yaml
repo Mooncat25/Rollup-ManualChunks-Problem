@@ -1,0 +1,8 @@
+# pnpm-workspace.yaml
+packages:
+  # executable/launchable applications
+  - 'apps/*'
+  - 'apps/svelte/*'
+  # all packages in subdirs of packages/ and components/
+  - 'packages/*'
+  - 'packages/svelte/*'

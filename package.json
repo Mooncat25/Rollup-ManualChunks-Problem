@@ -1,0 +1,12 @@
+{
+  "name": "manual-chunks-problem-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The monorepo for reproducing the problems in Rollup's manualChunks() option.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mooncat25",
+  "license": "ISC"
+}
