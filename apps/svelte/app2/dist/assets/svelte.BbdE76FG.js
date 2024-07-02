@@ -2609,14 +2609,22 @@ if (typeof window !== "undefined")
   (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(PUBLIC_VERSION);
 export {
   SvelteComponent as S,
+  SvelteComponentDev as SvelteComponent,
+  SvelteComponentTyped,
   insert as a,
+  afterUpdate,
   append as b,
+  beforeUpdate,
   set_data as c,
+  createEventDispatcher,
   detach as d,
   element as e,
   space as f,
   create_component as g,
+  getAllContexts,
+  getContext,
   attr as h,
+  hasContext,
   init as i,
   transition_in as j,
   transition_out as k,
@@ -2624,7 +2632,10 @@ export {
   mount_component as m,
   noop as n,
   destroy_component as o,
-  onMount as p,
+  onDestroy,
+  onMount,
   safe_not_equal as s,
-  text as t
+  setContext,
+  text as t,
+  tick
 };

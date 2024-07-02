@@ -1,4 +1,4 @@
-import { S as SvelteComponent, i as init, s as safe_not_equal, e as element, t as text, a as insert, b as append, l as listen, c as set_data, n as noop, d as detach, f as space, g as create_component, h as attr, m as mount_component, j as transition_in, k as transition_out, o as destroy_component, p as onMount } from "./svelte-BP-KZWPb.js";
+import { S as SvelteComponent, i as init, s as safe_not_equal, e as element, t as text, a as insert, b as append, l as listen, c as set_data, n as noop, d as detach, f as space, g as create_component, h as attr, m as mount_component, j as transition_in, k as transition_out, o as destroy_component } from "./svelte.BbdE76FG.js";
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -86,7 +86,7 @@ function create_fragment$1(ctx) {
     }
   };
 }
-function instance$1($$self, $$props, $$invalidate) {
+function instance($$self, $$props, $$invalidate) {
   let count = 0;
   const increment = () => {
     $$invalidate(0, count += 1);
@@ -96,7 +96,7 @@ function instance$1($$self, $$props, $$invalidate) {
 class Counter extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+    init(this, options, instance, create_fragment$1, safe_not_equal, {});
   }
 }
 function create_fragment(ctx) {
@@ -106,13 +106,10 @@ function create_fragment(ctx) {
   let h1;
   let t3;
   let div1;
-  let t4;
-  let t5;
-  let div2;
   let counter;
-  let t6;
+  let t4;
   let p0;
-  let t10;
+  let t8;
   let p1;
   let current;
   counter = new Counter({});
@@ -126,20 +123,14 @@ function create_fragment(ctx) {
       h1.textContent = "Vite + Svelte";
       t3 = space();
       div1 = element("div");
-      t4 = text(
-        /*randomText*/
-        ctx[0]
-      );
-      t5 = space();
-      div2 = element("div");
       create_component(counter.$$.fragment);
-      t6 = space();
+      t4 = space();
       p0 = element("p");
       p0.innerHTML = `Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!`;
-      t10 = space();
+      t8 = space();
       p1 = element("p");
       p1.textContent = "Click on the Vite and Svelte logos to learn more";
-      attr(div2, "class", "card");
+      attr(div1, "class", "card");
       attr(p1, "class", "read-the-docs svelte-11cv5lq");
     },
     m(target, anchor) {
@@ -149,24 +140,14 @@ function create_fragment(ctx) {
       append(main, h1);
       append(main, t3);
       append(main, div1);
-      append(div1, t4);
-      append(main, t5);
-      append(main, div2);
-      mount_component(counter, div2, null);
-      append(main, t6);
+      mount_component(counter, div1, null);
+      append(main, t4);
       append(main, p0);
-      append(main, t10);
+      append(main, t8);
       append(main, p1);
       current = true;
     },
-    p(ctx2, [dirty]) {
-      if (!current || dirty & /*randomText*/
-      1) set_data(
-        t4,
-        /*randomText*/
-        ctx2[0]
-      );
-    },
+    p: noop,
     i(local) {
       if (current) return;
       transition_in(counter.$$.fragment, local);
@@ -184,17 +165,10 @@ function create_fragment(ctx) {
     }
   };
 }
-function instance($$self, $$props, $$invalidate) {
-  let randomText = "";
-  onMount(() => {
-    $$invalidate(0, randomText = (Math.random() * 1e3).toString());
-  });
-  return [randomText];
-}
 class App extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance, create_fragment, safe_not_equal, {});
+    init(this, options, null, create_fragment, safe_not_equal, {});
   }
 }
 new App({

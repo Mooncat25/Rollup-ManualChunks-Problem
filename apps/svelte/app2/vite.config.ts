@@ -1,6 +1,7 @@
 import { defineConfig, type UserConfig } from 'vite'
-import type { TransformResult } from 'rollup';
+import type { TransformResult, PreRenderedChunk } from 'rollup';
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { join } from 'node:path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,6 +23,7 @@ export default defineConfig({
             ...config.build,
             rollupOptions: {
               ...config.build?.rollupOptions,
+              input: ['index.html', join(process.cwd(), 'node_modules/svelte/src/runtime/index.js')],
               output: {
                 manualChunks: function (id: string): string | undefined {
                   if (id.includes('/axios/')) {
@@ -30,10 +32,19 @@ export default defineConfig({
                   if (id.includes('/svelte/src/')) {
                     return 'svelte';
                   }
-                }
+                },
+
+                entryFileNames: function (chunkInfo: PreRenderedChunk): string {
+                  let fileName = 'assets/[name].[hash].js';
+                  if (chunkInfo.facadeModuleId?.includes('/svelte/src/runtime/index.js')) {
+                    fileName = `assets/svelte.[hash].js`;
+                  }
+                  return fileName;
+                },
               },
-            }
-          }
+              preserveEntrySignatures: 'allow-extension',
+            },
+          },
         };
       },
 
